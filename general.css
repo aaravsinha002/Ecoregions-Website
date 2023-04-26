@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@300&display=swap');
+
+body{
+    /*background-image: url("bg.jpg");
+    background-repeat: no-repeat;*/
+    background-image: linear-gradient(#90EE90,#476ba0);
+}
+#welcome{
+    padding-left: 150px;
+    font-family:Com;
+}
+
+#home:hover {
+    color: darkgreen;
+    transition: 0.5s;
+    animation: alternate-reverse;
+}
