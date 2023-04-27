@@ -37,3 +37,29 @@ body{
 #linksheader{
     text-decoration: underline;
 }
+
+#blink{
+    color: rgb(145, 26, 26);
+    text-decoration: wavy;
+    text-decoration: underline;
+    font-size: 21px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: center;
+    font-weight: bold;
+}
+
+#MPLink{
+    float: inline-start;
+    line-break: normal;
+    font-size: 21px;
+    color: rgb(145, 26, 26);
+    text-decoration: underline;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#BODY1{
+    background-image: url(Map\ eco\ regions.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:contain;
+}
