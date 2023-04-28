@@ -62,9 +62,11 @@ body{
     background-position: center;
     background-repeat: no-repeat;
     background-size:contain;
+    font-size: larger;
 }
 
-#button1{
-    margin-top: 392px;
-    margin-left: 585px;
+#coolbeans{
+    font-size: large;
+    text-align: center;
+    color: crimson;
 }
