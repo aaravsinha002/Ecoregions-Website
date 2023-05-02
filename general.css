@@ -67,21 +67,28 @@ body{
 
 #coolbeans{
     font-size: 27px;
-    padding-left: 42%;
+    padding-left: 70%;
     text-align: center;
     color: burlywood;
+    padding-top: 30%;
 }
 #fatbeans{
     font-size: 27px;
     text-align: center;
     color: rgb(9, 226, 241);
-    padding-left: 42%;
-    padding-top: 30px;
+    padding-left: 70%;
+    padding-top: 30%;
 }
 #abeans{
     font-size: 27px;
     text-align: center;
     color: rgb(115, 236, 85);
-    padding-left: 42%;
-    padding-top: 30px;
+    padding-left: 70%;
+    padding-top: 30%;
+}
+#haha{
+    font-size: 27px;
+    text-align: center;
+    padding-left: 70%;
+    padding-top: 30%;
 }
