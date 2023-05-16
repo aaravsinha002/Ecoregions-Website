@@ -2,16 +2,46 @@
 <html>
 <head>
     <title>Cookie Clicker Game</title>
+    <style>
+        #cookie {
+            width: 200px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <h1>Cookie Clicker Game</h1>
     <p>Click the cookie to answer questions and win prizes!</p>
-    <button id="cookie" onclick="handleCookieClick()">Click Me!</button>
+    <img id="cookie" src="cookie_image.jpg" alt="Cookie" onclick="handleCookieClick()">
     <p id="cookieCount">Cookies: 0</p>
 
     <script>
         var cookieCount = 0;
         var correctAnswers = 0;
+
+        var questionBank = [
+            {
+                question: "What is the capital of France?",
+                answer: "Paris"
+            },
+            {
+                question: "Who painted the Mona Lisa?",
+                answer: "Leonardo da Vinci"
+            },
+            {
+                question: "What is the largest planet in our solar system?",
+                answer: "Jupiter"
+            },
+            {
+                question: "Who wrote the novel 'Pride and Prejudice'?",
+                answer: "Jane Austen"
+            },
+            {
+                question: "What is the chemical symbol for gold?",
+                answer: "Au"
+            }
+            // Add more questions to the question bank as desired
+        ];
 
         function handleCookieClick() {
             cookieCount++;
@@ -20,37 +50,19 @@
         }
 
         function showQuestion() {
-            var question = generateQuestion();
-            var answer = calculateAnswer(question);
+            var randomIndex = Math.floor(Math.random() * questionBank.length);
+            var question = questionBank[randomIndex].question;
+            var answer = questionBank[randomIndex].answer;
 
             var userAnswer = prompt(question);
 
-            if (parseInt(userAnswer) === answer) {
+            if (userAnswer && userAnswer.toLowerCase() === answer.toLowerCase()) {
                 correctAnswers++;
                 if (correctAnswers % 5 === 0) {
                     alert('Congratulations! You won a prize!');
                 }
             } else {
                 alert('Oops! That was incorrect. Keep trying!');
-            }
-        }
-
-        function generateQuestion() {
-            var num1 = Math.floor(Math.random() * 10) + 1;
-            var num2 = Math.floor(Math.random() * 10) + 1;
-            var operator = Math.random() > 0.5 ? '+' : '-';
-            return 'What is ' + num1 + ' ' + operator + ' ' + num2 + '?';
-        }
-
-        function calculateAnswer(question) {
-            var parts = question.split(' ');
-            var num1 = parseInt(parts[2]);
-            var num2 = parseInt(parts[4]);
-            var operator = parts[3];
-            if (operator === '+') {
-                return num1 + num2;
-            } else {
-                return num1 - num2;
             }
         }
     </script>
