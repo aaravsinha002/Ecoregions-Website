@@ -10,8 +10,9 @@
     </style>
 </head>
 <body>
-    <h1 style = "text-align:center;">Cookie Clicker Game</h1>
-    <p style = "text-align:center;">Click the cookie to answer questions and win prizes!</p>
+    <h1 style = "text-align:center;">Cookie Clicker Game Exam Review</h1>
+    <p style = "text-align:center;">Click the cookie to answer questions that relate to the final exam review. If youanswer right, you get more cookies. 
+        Every mulitple of 5 cookies, something cool will happen!</p>
     <img id="cookie" src="images\ cookie.jpg" alt="Cookie" onclick="handleCookieClick()">
     <p id="cookieCount">Cookies: 0</p>
 
@@ -40,12 +41,12 @@
                 question: "5",
                 answer: "5"
             }
-            // Add more questions to the question bank as desired
+            
         ];
 
         function handleCookieClick() {
-            cookieCount++;
-            document.getElementById('cookieCount').textContent = 'Cookies: ' + cookieCount;
+            
+            document.getElementById('cookieCount').textContent = 'You have ' + cookieCount + 'cookies.';
             showQuestion();
         }
 
@@ -58,11 +59,14 @@
 
             if (userAnswer && userAnswer.toLowerCase() === answer.toLowerCase()) {
                 correctAnswers++;
+                cookieCount++;
                 if (correctAnswers % 5 === 0) {
                     alert('Congratulations! You won a prize!');
                 }
             } else {
-                alert('Oops! That was incorrect. Keep trying!');
+                alert('Oops! Try Again!');
+                correctAnswers--;
+                
             }
         }
     </script>
