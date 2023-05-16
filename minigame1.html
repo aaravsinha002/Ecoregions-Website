@@ -1,35 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>PLAY TO GET COOKIES</title>
+    <title>Cookie Clicker Game</title>
+</head>
+<body>
+    <h1>Cookie Clicker Game</h1>
+    <p>Click the cookie to answer questions and win prizes!</p>
+    <button id="cookie" onclick="handleCookieClick()">Click Me!</button>
+    <p id="cookieCount">Cookies: 0</p>
 
     <script>
-        let cookieNum = 0;
-        let qAnsCorrect = 0;
-        let AnsWrong = 0;
-        function myFunction() {
-      var number = "123";
-      document.getElementById("myText").innerHTML = cookieNum;
-    }
+        var cookieCount = 0;
+        var correctAnswers = 0;
 
-        
+        function handleCookieClick() {
+            cookieCount++;
+            document.getElementById('cookieCount').textContent = 'Cookies: ' + cookieCount;
+            showQuestion();
+        }
+
+        function showQuestion() {
+            var question = generateQuestion();
+            var answer = calculateAnswer(question);
+
+            var userAnswer = prompt(question);
+
+            if (parseInt(userAnswer) === answer) {
+                correctAnswers++;
+                if (correctAnswers % 5 === 0) {
+                    alert('Congratulations! You won a prize!');
+                }
+            } else {
+                alert('Oops! That was incorrect. Keep trying!');
+            }
+        }
+
+        function generateQuestion() {
+            var num1 = Math.floor(Math.random() * 10) + 1;
+            var num2 = Math.floor(Math.random() * 10) + 1;
+            var operator = Math.random() > 0.5 ? '+' : '-';
+            return 'What is ' + num1 + ' ' + operator + ' ' + num2 + '?';
+        }
+
+        function calculateAnswer(question) {
+            var parts = question.split(' ');
+            var num1 = parseInt(parts[2]);
+            var num2 = parseInt(parts[4]);
+            var operator = parts[3];
+            if (operator === '+') {
+                return num1 + num2;
+            } else {
+                return num1 - num2;
+            }
+        }
     </script>
-</head>
-
-<body>
-  <h1 style="text-align: center;">Review Minigame</h1>
-
-  <div onload="myFunction()">
-      
-      <p><script>document.write(cookieNum)</script></p>
-    <img src="Images/cookie.jpg" alt="cookie counting" style="">
-    
-  </div>
-    
 </body>
-
 </html>
