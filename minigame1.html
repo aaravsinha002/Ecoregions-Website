@@ -7,46 +7,59 @@
             width: 200px;
             cursor: pointer;
         }
+
+        #feedback {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            margin-top: 10px;
+            padding: 10px;
+        }
     </style>
 </head>
 <body>
-    <h1 style = "text-align:center;">Cookie Clicker Game Exam Review</h1>
-    <p style = "text-align:center;">Click the cookie to answer questions that relate to the final exam review. If youanswer right, you get more cookies. 
-        Every mulitple of 5 cookies, something cool will happen!</p>
-    <img id="cookie" src="images\ cookie.jpg" alt="Cookie" onclick="handleCookieClick()">
+    <h1 style="text-align:center;">Cookie Clicker Game Exam Review</h1>
+    <p style="text-align:center;">Click the cookie to answer questions that relate to the final exam review. If you answer correctly, you get more cookies. Every multiple of 5 cookies, something cool will happen!</p>
+    <img id="cookie" src="images/cookie.jpg" alt="Cookie" onclick="handleCookieClick()">
     <p id="cookieCount">Cookies: 0</p>
+
+    <div id="feedback"></div>
 
     <script>
         var cookieCount = 0;
         var correctAnswers = 0;
+        var feedbackContainer = document.getElementById('feedback');
 
         var questionBank = [
             {
                 question: "1",
-                answer: "1"
+                answer: "1",
+                feedback: "Great job! You understood the concept well."
             },
             {
                 question: "2",
-                answer: "2"
+                answer: "2",
+                feedback: "Well done! You are on the right track."
             },
             {
                 question: "3",
-                answer: "3"
+                answer: "3",
+                feedback: "Excellent! Keep up the good work."
             },
             {
                 question: "4",
-                answer: "4"
+                answer: "4",
+                feedback: "Awesome! You've got a good grasp of the topic."
             },
             {
                 question: "5",
-                answer: "5"
+                answer: "5",
+                feedback: "Fantastic! Your understanding is commendable."
             }
-            
         ];
 
         function handleCookieClick() {
-            
-            document.getElementById('cookieCount').textContent = 'You have ' + cookieCount + 'cookies.';
+            document.getElementById('cookieCount').textContent = 'Cookies: ' + cookieCount;
             showQuestion();
         }
 
@@ -54,20 +67,26 @@
             var randomIndex = Math.floor(Math.random() * questionBank.length);
             var question = questionBank[randomIndex].question;
             var answer = questionBank[randomIndex].answer;
+            var questionFeedback = questionBank[randomIndex].feedback;
 
             var userAnswer = prompt(question);
+
+            var feedback = document.createElement('p');
+            feedback.textContent = question + ' - Your Answer: ' + userAnswer + ' - ';
 
             if (userAnswer && userAnswer.toLowerCase() === answer.toLowerCase()) {
                 correctAnswers++;
                 cookieCount++;
+                feedback.textContent += 'Correct! ' + questionFeedback;
                 if (correctAnswers % 5 === 0) {
                     alert('Congratulations! You won a prize!');
                 }
             } else {
-                alert('Oops! Try Again!');
-                correctAnswers--;
-                
+                feedback.textContent += 'Incorrect! ' + questionFeedback;
             }
+
+            feedbackContainer.innerHTML = ''; // Erase previous feedback
+            feedbackContainer.appendChild(feedback);
         }
     </script>
 </body>
