@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Cookie Clicker Review Game</title>
+    <title>Cookie Clicker Game</title>
     <style>
         #cookie {
             width: 200px;
@@ -15,32 +15,20 @@
             margin-top: 10px;
             padding: 10px;
         }
-
-        #prizeButton {
-            position: fixed;
-            top: 50%;
-            right: 20px;
-            transform: translateY(-50%);
-            display: none;
-        }
     </style>
 </head>
 <body>
     <h1 style="text-align:center;">Cookie Clicker Game Exam Review</h1>
     <p style="text-align:center;">Click the cookie to answer questions that relate to the final exam review. If you answer correctly, you get more cookies. Every multiple of 5 cookies, something cool will happen!</p>
     <img id="cookie" src="cookie.jpg" alt="Cookie" onclick="handleCookieClick()">
-    <p id="cookieCount">Cookies: </p>
+    <p id="cookieCount">Cookies: 0</p>
 
     <div id="feedback"></div>
 
-    <a href="prize.html" id="prizeButton">Claim Prize!</a>
-
     <script>
-        var cookieCount = 0;
+        var cookieCount = 1;
         var correctAnswers = 0;
         var feedbackContainer = document.getElementById('feedback');
-        var cookieCountElement = document.getElementById('cookieCount');
-        var prizeButton = document.getElementById('prizeButton');
 
         var questionBank = [
             {
@@ -76,7 +64,7 @@
         ];
 
         function handleCookieClick() {
-            cookieCountElement.textContent = 'Cookies: ' + cookieCount;
+            document.getElementById('cookieCount').textContent = 'Cookies: ' + cookieCount;
             showQuestion();
         }
 
@@ -94,16 +82,13 @@
             if (userAnswer && userAnswer.toLowerCase() === answer.toLowerCase()) {
                 correctAnswers++;
                 cookieCount++;
-                cookieCountElement.textContent = 'Cookies: ' + cookieCount;
                 feedback.textContent += 'Correct! ' + questionFeedback;
                 if (correctAnswers % 5 === 0) {
-                    alert('Congratulations! You won a chance to play a minigame!!');
-                    prizeButton.style.display = 'block';
+                    alert('Congratulations! You won a prize!');
                 }
             } else {
                 feedback.textContent += 'Incorrect! ' + questionFeedback;
                 cookieCount--;
-                cookieCountElement.textContent = 'Cookies: ' + cookieCount;
             }
 
             feedbackContainer.innerHTML = ''; // Erase previous feedback
