@@ -69,17 +69,10 @@
                 feedback: "Fantastic! Your understanding is commendable."
             },
             {
-                question: "What is this: the variety of life in the world or in a particular habitat or ecosystem.
-
-                answer: "biodiversity",
-                feedback: "Awesome! You've got a good grasp of the topic."
-            },
-            {
-                question: "Which major coastal city is in this ecoregion?",
-                answer: "houston",
-                feedback: "Awesome! You've got a good grasp of the topic."
+                question: "What is this: .",
+                answer: "deposition",
+                feedback: "Fantastic! Your understanding is commendable."
             }
-        
         ];
 
         function handleCookieClick() {
@@ -103,9 +96,8 @@
                 cookieCount++;
                 cookieCountElement.textContent = 'Cookies: ' + cookieCount;
                 feedback.textContent += 'Correct! ' + questionFeedback;
-                feedback.textContent =
-                if (correctAnswers % 150 === 0) {
-                    alert('Congratulations! You won a dollar!!');
+                if (correctAnswers % 5 === 0) {
+                    alert('Congratulations! You won a chance to play a minigame!!');
                     prizeButton.style.display = 'block';
                 }
             } else {
@@ -124,4 +116,5 @@
     </script>
 </body>
 </html>
+
 
