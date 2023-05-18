@@ -27,7 +27,9 @@
 </head>
 <body>
     <h1 style="text-align:center;">Cookie Clicker Game Exam Review</h1>
-    <p style="text-align:center;">Click the cookie to answer questions that relate to the final exam review. If you answer correctly, you get more cookies. Every multiple of 5 cookies, something cool will happen!</p>
+    <p style="text-align:center;">Click the cookie to answer questions that relate to the final exam review. 
+        If you answer correctly, you get more cookies. If you get 400 cookies, I will personally owe you a dollar! 
+        I will only be giving away one dollar, so hurry up! Take a screen shot and send it to the appleID aaravsinha002@gmail.com for your money! MORE QUESTION COMING SOON!</p>
     <img id="cookie" src="cookie.jpg" alt="Cookie" onclick="handleCookieClick()">
     <p id="cookieCount">Cookies: </p>
 
@@ -59,7 +61,7 @@
                 feedback: "Excellent! Keep up the good work."
             },
             {
-                question: "What is this: the process of getting ______ by wind, water, or other natural agents.?",
+                question: "What is this: the process of getting ______ion by wind, water, or other natural agents.?",
                 answer: "erosion",
                 feedback: "Awesome! You've got a good grasp of the topic."
             },
@@ -69,8 +71,8 @@
                 feedback: "Fantastic! Your understanding is commendable."
             },
             {
-                question: "What is this: .",
-                answer: "deposition",
+                question: "What is this: the variety of life in the world or in a particular habitat or ecosystem.",
+                answer: "biodiversity",
                 feedback: "Fantastic! Your understanding is commendable."
             }
         ];
@@ -96,8 +98,12 @@
                 cookieCount++;
                 cookieCountElement.textContent = 'Cookies: ' + cookieCount;
                 feedback.textContent += 'Correct! ' + questionFeedback;
-                if (correctAnswers % 5 === 0) {
-                    alert('Congratulations! You won a chance to play a minigame!!');
+                if (correctAnswers % 400 === 0) {
+                    var name = prompt('What is your name?')
+                    alert(`Congratulations, ${name}, You won SOME CASH!!`);
+
+                }
+                if (correctAnswers % 10 === 0) {
                     prizeButton.style.display = 'block';
                 }
             } else {
